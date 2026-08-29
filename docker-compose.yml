@@ -1,0 +1,18 @@
+services:
+  devops-automation-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: devops-automation-api
+    ports:
+      - "5000:5000"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - ASPNETCORE_URLS=http://+:5000
+      - ApiKey=${API_KEY:-}
+      - LlmSettings__Provider=${LLM_PROVIDER:-Groq}
+      - LlmSettings__Endpoint=${LLM_ENDPOINT:-}
+      - LlmSettings__ApiKey=${LLM_API_KEY:-}
+      - LlmSettings__DeploymentName=${LLM_DEPLOYMENT_NAME:-llama3-70b-8192}
+      - AllowedOrigins__0=${ALLOWED_ORIGINS:-}
+    restart: unless-stopped
