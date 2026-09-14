@@ -13,6 +13,6 @@ services:
       - LlmSettings__Provider=${LLM_PROVIDER:-Groq}
       - LlmSettings__Endpoint=${LLM_ENDPOINT:-}
       - LlmSettings__ApiKey=${LLM_API_KEY:-}
-      - LlmSettings__DeploymentName=${LLM_DEPLOYMENT_NAME:-llama3-70b-8192}
+      - LlmSettings__DeploymentName=${LLM_DEPLOYMENT_NAME:-openai/gpt-oss-120b}
       - AllowedOrigins__0=${ALLOWED_ORIGINS:-}
     restart: unless-stopped
